@@ -1,11 +1,13 @@
 public class TxHandler {
 
-	/* Creates a public ledger whose current UTXOPool (collection of unspent 
-	 * transaction outputs) is utxoPool. This should make a defensive copy of 
+	private UTXOPool utxoPool;
+
+	/* Creates a public ledger whose current UTXOPool (collection of unspent
+	 * transaction outputs) is utxoPool. This should make a defensive copy of
 	 * utxoPool by using the UTXOPool(UTXOPool uPool) constructor.
 	 */
 	public TxHandler(UTXOPool utxoPool) {
-		// IMPLEMENT THIS
+		this.utxoPool = new UTXOPool(utxoPool);
 	}
 
 	/* Returns true if 
@@ -23,9 +25,9 @@ public class TxHandler {
 		return false;
 	}
 
-	/* Handles each epoch by receiving an unordered array of proposed 
-	 * transactions, checking each transaction for correctness, 
-	 * returning a mutually valid array of accepted transactions, 
+	/* Handles each epoch by receiving an unordered array of proposed
+	 * transactions, checking each transaction for correctness,
+	 * returning a mutually valid array of accepted transactions,
 	 * and updating the current UTXO pool as appropriate.
 	 */
 	public Transaction[] handleTxs(Transaction[] possibleTxs) {
